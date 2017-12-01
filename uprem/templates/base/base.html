@@ -1,0 +1,228 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+
+{%block estilos %} 
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/materialize.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/materialize.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/styleNav.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/material-design-iconic-font.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/formulario.css' %}">
+{%endblock%}
+{%block title %} 
+
+{%endblock%}
+   
+</head>
+<body >
+    <nav class="nav-extended">
+        <div class="nav-wrapper">
+          <a class="brand-logo">UPREM</a>
+          <!-- Modal Nuevo y Abrir Proyecto -->
+      <a class="waves-effect waves-light btn modal-trigger" style="Position:Absolute; left:38%; top:10% " href="#modalNuevo">Nuevo Proyecto</a>
+      <a class="waves-effect waves-light btn modal-trigger" style="Position:Absolute; left:55%; top:10% " href="#modalAbrir">Abrir Proyecto</a>
+      <a class="waves-effect waves-light btn modal-trigger" style="Position:Absolute; left:85%; top:10% " href="listuser.php">Participantes</a>
+
+        </div>
+        <div class="nav-extended">
+          <ul class="tabs tabs-transparent">
+            <li class="tab"><a class="active" href="#test1">Reqisitos de Sistema</a></li>
+            <li class="tab"><a href="#test2">Análisis del Sistema</a></li>
+            <li class="tab"><a href="#test3">Conflictos y Defectos</a></li>
+            <li class="tab"><a href="#test4">Peticiones de Cambio</a></li>
+          </ul>
+        </div>
+   </nav>
+
+
+   
+  <nav>
+  <ul>
+          <li><a href="#">Requsitos de Sistema</a>
+            <ul>
+
+<!--                   <li><a><i class="material-icons right">assignment</i>Portada</a>
+                  <ul>
+                      <li><a href="#portada" ><i class="material-icons right">add_box</i> NuevaPortada</a></li>
+                      <li><a href="#portada2" ><i class="material-icons right">create</i>Modificar Portada</a></li>
+                      
+                  </ul>
+                  </li>
+ -->
+                   <li><a><i class="material-icons right">gps_fixed</i>Objetivos</a>
+                  <ul>
+                      <li><a href="#gestionObjetivos" ><i class="material-icons right">add_box</i>Nuevo Objetivo</a></li>
+                      <li><a href="#gestionObjetivos2" onclick="obtener_objetivo()"><i class="material-icons right">create</i>Modif/Elimin. Objetivo</a></li>
+                      
+                  </ul>
+                  </li>
+                  <li><a><i class="material-icons right">accessibility</i>Gestión de Actores</a>
+                  <ul>
+                      <li><a href="#gestionActor" ><i class="material-icons right">add_box</i>Nuevo Actor</a></li>
+                      <li><a href="#gestionActor2" onclick="obtener_actor()"><i class="material-icons right">create</i>Modif/Elimin. Actor</a></li>
+                      
+                  </ul>
+                  </li>
+                  <li><a><i class="material-icons right">assignment</i>Requisitos de Información</a>
+                  <ul>
+                      <li><a href="#gestionRequisitosInf" ><i class="material-icons right">add_box</i>Nuevo Requisito</a></li>
+                      <li><a href="#gestionRequisitosInf2" onclick="obtener_ri()"><i class="material-icons right">create</i>Modif/Elimin. Requisito</a></li>
+                      
+                  </ul>
+                  </li>
+                  <li><a><i class="material-icons right">error_outline</i>Requisitos de Restricción</a>
+                  <ul>
+                      <li><a href="#gestionRequisitosRestriccion" ><i class="material-icons right">add_box</i>Nuevo Requisito de Restricción</a></li>
+                      <li><a href="#gestionRequisitosRestriccion2" onclick="obtener_restriccion()"><i class="material-icons right">create</i>Modif/Elimin. Requisito de Restricción</a></li>
+                      
+                  </ul>
+                  </li>
+                  <li><a><i class="material-icons right">recent_actors</i>Casos de uso</a>
+                  <ul>
+                      <li><a href="#gestionCasoUso" ><i class="material-icons right">add_box</i>Nuevo Caso de Uso</a></li>
+                      <li><a href="#gestionCasoUso2" onclick="obtener_cu()" ><i class="material-icons right">create</i>Modif/Elimin. Caso de Uso</a></li>
+                      
+                  </ul>
+                  </li>
+                  <li><a><i class="material-icons right">offline_pin</i>Requisitos Funcionales</a>
+                  <ul>
+                     <li><a href="#gestionRequisitosFuncionales" ><i class="material-icons right">add_box</i>Nuevo requisito Funcional</a></li>
+                      <li><a href="#gestionRequisitosFuncionales2" onclick="obtener_funcional()"><i class="material-icons right">create</i>Modif/Elimin. requisito Funcional</a></li>
+                      
+                  </ul>
+                  </li>
+                  <li><a><i class="material-icons right">cancel</i>Requisitos no Funcionales</a>
+                  <ul>
+                      <li><a href="#gestionRequisitosNoFuncionales" ><i class="material-icons right">add_box</i>Nuevo Requisito no Funcional</a></li>
+                      <li><a href="#gestionRequisitosNoFuncionales2" onclick="obtener_nofuncional()"><i class="material-icons right">create</i>Modif/Elimin. Requisito no Funcional</a></li>
+                      
+                  </ul>
+                  </li>
+                  <li><a><i class="material-icons right">image_aspect_ratio</i>Matriz de Rastreabilidad</a>
+                  <ul>
+                      <li><a href="#gestionMatriz" ><i class="material-icons right">add_box</i>Nueva Matriz de Rastreabilidad</a></li>
+                      <li><a href="#gestionMatriz2" onclick="obtener_matriz()"><i class="material-icons right">create</i>Modif/Elimin. Matriz de Rastreabilidad</a></li>
+                      
+                  </ul>
+                  </li>
+              </ul>
+          </li>
+            <li><a>Análisis del Sistemas</a>
+              <ul>
+                  <li><a> <i class="material-icons right">receipt</i>Descripcion Asociaciones</a>
+                   <ul>
+                      <li><a href="#alta_descr1"><i class="material-icons right"> library_add</i>Nueva Descripcion</a></li>
+                      <li><a href="#descrip1"><i class="material-icons right">create</i>Modif/ELimin</a></li>
+                      </ul>
+                  </li>
+                  <li><a> <i class="material-icons right">list</i>Diagrama de Secuencia</a>
+                  <ul>
+                      <li><a href="#alta_di_sec"><i class="material-icons right">library_add</i>Nuevo Diagrama</a></li>
+                      <li><a href="#secu1"><i class="material-icons right">create</i>Modif/ELimin</a></li>
+                      </ul>
+                  </li>
+                  <li><a> <i class="material-icons right">tab</i>Roles y Asociaciones</a>
+                  <ul>
+                      <li><a href="#modal_rol_asoc"><i class="material-icons right">library_add</i>Nueva Rol</a></li>
+                      <li><a href="#rol1"><i class="material-icons right">create</i>Modif/ELimin</a></li>
+                      </ul>
+                  </li>
+
+
+                  <li><a> <i class="material-icons right">library_books</i>Tipos</a>
+                        <ul>
+                      <li><a href="#modal6leo" ><i class="material-icons right"> library_add</i>Nuevo tipo</a></li>
+                      <li><a href="#modal6leo2"><i class="material-icons right">create</i>Modif/ELimin</a></li>
+                  </ul>
+                  </li>
+                   <li><a> <i class="material-icons right">import_contacts</i>Catalogo de operacion del sistema</a>
+                        <ul>
+                      <li><a href="#modal7leo"><i class="material-icons right"> library_add</i>Nuevo catalogo</a></li>
+                      <li><a href="#modal7leo2"><i class="material-icons right">create</i>Modif/ELimin</a></li>
+                  </ul>
+                  </li>
+              </ul>
+                        <li href="#"><a >Conflictos y Defectos</a>
+                <ul>
+                  
+                  <li><a><i class="material-icons right">swap_calls</i>Conflictos</a>
+                  <ul>
+                      <li><a href="http://127.0.0.1:8000/conflictos/nuevo"><i class="material-icons right"> library_add</i>Nuevo Conflicto</a></li>
+                      <li><a href="#modalModif" onclick="obtener_cfl()"><i class="material-icons right">mode_edit</i>Modif/Elimin Conflictos</a></li>
+                      <li><a href="http://127.0.0.1:8000/conflictos/lista"> Ver conflictos</a></li>
+                      
+                  </ul>
+                  </li>
+                 
+                  <li><a><i class="material-icons right">domain</i>Defectos</a>
+                  <ul>
+                      <li><a href="#modalDefectos" ><i class="material-icons right"> library_add</i>Nuevo Defecto</a></li>
+                      <li><a href="#modalModifDefec"><i class="material-icons right">mode_edit</i>Modif/Elimin Defectos</a></li>
+                      <li><a href='tablaconflictos.php'> Ver conflictos</a></li>
+
+                  </ul>
+                      </li>
+              </ul>
+            </li>
+          <li><a href="#">Peticiones de Cambio</a>
+            <ul>
+                  <li><a href="#">Hoja de peticion de Cambio</a>
+                  <ul>
+                      <li><a class="tooltipped" data-position="top" data-delay="50" data-tooltip="Nueva Sección/Apendice" href="#gestionCambio" class="waves-effect wabes-orange modal-trigger" class="z-depth-5" >Nuevo Cambio
+                      <i class="material-icons right"> </i></a></li>
+                      
+                      </ul>
+                  </li>
+                  <li><a href="#">Peticion de Cambio</a>
+                  <ul>
+                      <li><a class="tooltipped" data-position="top" data-delay="50" data-tooltip="Nueva Sección/Apendice" href="#gestionPeticion" class="waves-effect wabes-orange modal-trigger" class="z-depth-5" ><i class="material-icons right"> library_add</i>Nueva Peticion</a></li>
+                      
+                  </ul>
+                  </li>
+                
+              </ul>
+          </li>
+            
+        </ul>
+  </nav> 
+
+  <div id="test3" class="col s12">
+    
+  <div class="container">
+  <div class="row">
+
+<!-- <button onclick="tabla()">try</button> 
+  -->
+<iframe src="http://127.0.0.1:8000/conflicto/tabla" style="border:none; width:100%; height:5000px;" ></iframe>
+           
+  </div>
+
+</div>
+</div>
+
+
+
+<body>
+{%block header %} 
+
+{%endblock%}
+{%block content %} 
+
+{%endblock%}
+
+{%block footer %} 
+
+{%endblock%}
+
+{%block extrajs %} 
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="js/materialize.js"></script>
+{%endblock%}
+</body>
+</html>

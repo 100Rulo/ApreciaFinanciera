@@ -1,0 +1,66 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+
+{%block estilos %} 
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/materialize.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/materialize.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/styleNav.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/material-design-iconic-font.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/formulario.css' %}">
+{%endblock%}
+{%block title %} 
+
+{%endblock%}
+   
+</head>
+<body >
+
+<table class="striped">
+  <thead>
+    <th>id</th>
+    <th>Nombre</th>
+    <th>Version</th>
+    <th>Autores</th>
+    <th>Fuentes</th>
+    <th>Descripcion</th>
+    <th>Importancia</th>
+    <th>Urgencia</th>
+    <th>Estado</th>
+    <th>Comentarios</th>
+  </thead>
+  <tbody>
+    {% if conflictos %}
+    {% for conflicto in conflictos %}
+    <tr>
+      <td>{{ conflicto.id }}</td>
+      <td>{{ conflicto.nombre }}</td>
+      <td>{{ conflicto.version }}</td>
+      <td>{{ conflicto.autores }}</td>
+      <td>{{ conflicto.fuentes }}</td>
+      <td>{{ conflicto.descripcion }}</td>
+      <td>{{ conflicto.importancia }}</td>
+      <td>{{ conflicto.urgencia }}</td>
+      <td>{{ conflicto.estado }}</td>
+      <td>{{ conflicto.comentarios }}</td>
+    </tr>
+    {% endfor %}
+
+    {% else %}
+    <h1> No hay registros de conflictos</h1>
+    {% endif %}
+
+  </tbody>
+</table>
+
+
+<body>
+{%block header %} 
+
+{%endblock%}
+{%block content %} 
